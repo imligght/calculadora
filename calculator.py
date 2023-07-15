@@ -14,7 +14,7 @@ class Calculator():
     def clear_field(self):
        global calculation
        calculation = '' 
-       calculation.delete(1.0, "end")
+       text_result.delete(1.0, "end")
 
     def evaluate_calculation(self):
         global calculation
@@ -26,11 +26,9 @@ class Calculator():
             self.clear_field()
             text_result.insert(1.0, "Error")
 
-
-
 # cria a raiz, ou seja, uma janela. E define seu tamanho
 root = tk.Tk()
-root.geometry("300x275")
+root.geometry("315x260")
 # define um campo para mostrar os números que estão sendo operados e o resultado
 text_result = tk.Text(root, height=2, width=16, font=("Arial", 24))
 text_result.grid(columnspan=5)
@@ -68,8 +66,9 @@ button_open_parentheses.grid(row=5, column=1)
 button_close_parentheses = tk.Button(root, text=')', command=lambda: Calculator().add_to_calculation(')'), width=5, font=('Arial', 14))
 button_close_parentheses.grid(row=5, column=3)
 
-button_equal = tk.Button(root, text='=', command= Calculator().evaluate_calculation(), width=5, font=('Arial', 14))
-button_equal.grid(row=5, column=3)
-
+button_equal = tk.Button(root, text='=', command=Calculator().evaluate_calculation, width=13, font=('Arial', 14))
+button_equal.grid(row=6, column=1, columnspan=2)
+button_clear= tk.Button(root, text='C', command=Calculator().clear_field, width=13, font=('Arial', 14))
+button_clear.grid(row=6, column=3, columnspan=2)
 
 root.mainloop()
