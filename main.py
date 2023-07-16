@@ -1,7 +1,7 @@
-import calculator
+import window
 
 def main():
-   calculator.Calculator()
+    window 
 
 if __name__ == '__main__':
     main()
